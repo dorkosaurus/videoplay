@@ -22,7 +22,7 @@ do
    iphone_int_mov=$i"_int"$IPHONE_EXT
    iphone_mov=$i$IPHONE_EXT
    iphone_dim=$IPHONE_WIDTH"x"$IPHONE_HEIGHT
-   iphone_int_cmd="ffmpeg -pattern_type glob -loop 1 -t 1 -framerate $FRAMERATE -y -i ./$jpg -s $iphone_dim -pix_fmt $IPHONE_PIXEL_FORMAT  -vf \"setsar=sar=16:9,setdar=dar=1:1\" $iphone_int_mov" 
+   iphone_int_cmd="ffmpeg -pattern_type glob -loop 1 -t 1 -framerate $FRAMERATE -y -i ./$jpg -s $iphone_dim -pix_fmt $IPHONE_PIXEL_FORMAT  -vf \"setsar=sar=1:1,setdar=dar=16:9\" $iphone_int_mov" 
    iphone_cmd="ffmpeg -i ./$iphone_int_mov -i ./1secAudio.mp3 -map 0:0 -map 1:0 $iphone_mov"
    iphone_rm_int_cmd="rm ./$iphone_int_mov"
    echo $iphone_int_cmd
